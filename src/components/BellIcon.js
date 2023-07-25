@@ -12,23 +12,21 @@ const NotificationIcon = () => {
     setShowNotification(true);
   };
 
-
-  const fetchFraudes = async () => {
-    const response = await fetch('http://localhost:5000/quantidade-fraudes');
-    if (response.ok) {
-    const data = await response.json();
-    handleNotification(data.quantidadeFraudes);
+  const getFraudsAmount = () => {
+    const amount = sessionStorage.getItem('frauds_amount');
+    if (amount) {
+      handleNotification(amount);
     }
   };
 
   useEffect(() => {
-    const intervalId = setInterval(fetchFraudes, 500);
-    return () => clearInterval(intervalId); // Limpa o intervalo ao desmontar o componente
+    const intervalId = setInterval(getFraudsAmount, 500);
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
     <div className="bell-icon-container">
-      <img class="bell-icon" src={error_icon} width="100" height="100" alt="Bell Icon"/>
+      <img className="bell-icon" src={error_icon} width="100" height="100" alt="Bell Icon"/>
       {showNotification && (
         <div className="notification-badge">
           <span>{notificationCount}</span>
