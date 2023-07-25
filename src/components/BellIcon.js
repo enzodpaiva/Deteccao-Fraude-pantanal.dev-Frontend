@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './BellIcon.css';
 import error_icon from "../assets/error.png";
-
+import { useNavigate } from 'react-router-dom';
 
 const NotificationIcon = () => {
+  const navigate = useNavigate();
   const [showNotification, setShowNotification] = useState(true);
   const [notificationCount, setNotificationCount] = useState(0);
 
@@ -11,8 +12,12 @@ const NotificationIcon = () => {
     setNotificationCount(amount);
     setShowNotification(true);
   };
-
-  const getFraudsAmount = () => {
+  
+  const handleDivClick = () => {
+    // Navigate to the '/frauds' page when the <div> is clicked
+    navigate('/frauds');
+  };
+    const getFraudsAmount = () => {
     const amount = sessionStorage.getItem('frauds_amount');
     if (amount) {
       handleNotification(amount);
@@ -25,7 +30,7 @@ const NotificationIcon = () => {
   }, []);
 
   return (
-    <div className="bell-icon-container">
+    <div onClick={handleDivClick} className="bell-icon-container">
       <img className="bell-icon" src={error_icon} width="100" height="100" alt="Bell Icon"/>
       {showNotification && (
         <div className="notification-badge">

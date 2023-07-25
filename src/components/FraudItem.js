@@ -15,7 +15,7 @@ const Item = ({ id: transaction_object }) => {
   };
 
   const handleView = async () => {
-    const response = fetch('http://localhost:5500/sample-view', {
+    const response = fetch('http://localhost:8000/analyse-sample', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

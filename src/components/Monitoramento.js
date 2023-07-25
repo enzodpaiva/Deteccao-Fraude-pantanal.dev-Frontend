@@ -2,13 +2,12 @@ import { LineChart, Line, XAxis, YAxis, Legend, ResponsiveContainer, CartesianGr
 import "./Monitoramento.css";
 import React, { useState, useEffect } from 'react';
 
-
 const Monitoramento = () => {
   const [transacoes, setTransacoes] = useState([]);
   const [frauds, setFrauds] = useState([]);
   
   const fetchTransacao = async () => {
-    const response = await fetch('http://localhost:5000/transacoes');
+    const response = await fetch('http://localhost:8000/transaction_sample');
     if (response.ok) {
     const data = await response.json();
     
@@ -18,29 +17,10 @@ const Monitoramento = () => {
       }
     setTransacoes((prevTransacoes) => [...prevTransacoes, data]);
     }
-    // try {
-    //   const response = await fetch('https://cors-anywhere.herokuapp.com/http://localhost:5500/random_transaction', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({}) // Objeto JSON vazio
-    //   });
-
-      // if (!response.ok) {
-      //   throw new Error('Falha na requisição POST');
-      // }
-    //   const data = await response.json();
-    //   // setTransacoes((prevTransacoes) => [...prevTransacoes, data]); // Mantém apenas as últimas 10 transações
-    //   console.log('Resposta do servidor:', data);
-    // } catch (error) {
-    //   console.error('Erro na requisição:', error);
-    // }
-
   };
 
   useEffect(() => {
-    const intervalId = setInterval(fetchTransacao, 5000);
+    const intervalId = setInterval(fetchTransacao, 1);
     return () => clearInterval(intervalId); // Limpa o intervalo ao desmontar o componente
   }, []);
 
