@@ -7,20 +7,30 @@ const Monitoramento = () => {
   const [frauds, setFrauds] = useState([]);
   
   const fetchTransacao = async () => {
-    const response = await fetch('http://localhost:8000/transaction_sample');
-    if (response.ok) {
-    const data = await response.json();
-    
-    if (data.Class === 1) {
-      setFrauds((prevFrauds) => [...prevFrauds, data]);
+    const apiToken = process.env.REACT_APP_API_TOKEN;
 
-      }
-    setTransacoes((prevTransacoes) => [...prevTransacoes, data]);
+    const response = await fetch('http://localhost:8000/transaction-sample', {
+      method: 'POST', // Defina o método da requisição como POST
+      headers: {
+        Authorization: apiToken, // Adiciona o cabeçalho de autorização com o token
+        'Content-Type': 'application/json' // Define o tipo de conteúdo como application/json
+      },
+      body: JSON.stringify({}) // Converte o corpo da requisição para formato JSON vazio
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      
+      if (data.Class === 1) {
+        setFrauds((prevFrauds) => [...prevFrauds, data]);
+
+        }
+      setTransacoes((prevTransacoes) => [...prevTransacoes, data]);
     }
   };
 
   useEffect(() => {
-    const intervalId = setInterval(fetchTransacao, 1);
+    const intervalId = setInterval(fetchTransacao, 1000);
     return () => clearInterval(intervalId); // Limpa o intervalo ao desmontar o componente
   }, []);
 
@@ -36,12 +46,16 @@ const Monitoramento = () => {
   };
 
   const calcularValorTotal = () => {
-    const somaValores = transacoes.reduce((total, transacao) => total + transacao.Amount, 0);
+    const somaValores = transacoes.reduce((total, transacao) => {
+      const valorTransacao = parseFloat(transacao.Amount);
+      return isNaN(valorTransacao) ? total : total + valorTransacao;
+    }, 0);
     return somaValores.toFixed(2);
   };
   
+  
   const calcularValorEconomizado = () => {
-    const somaValores = transacoes.reduce((total, transacao) => transacao.Class === 1 ? total + transacao.Amount : total, 0); 
+    const somaValores = transacoes.reduce((total, transacao) => transacao.Class === 1 ? parseFloat(total) + parseFloat(transacao.Amount) : parseFloat(total), 0); 
     return somaValores.toFixed(2);
   };
 
