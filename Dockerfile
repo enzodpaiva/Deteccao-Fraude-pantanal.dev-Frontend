@@ -16,6 +16,8 @@ COPY . .
 # Construa a aplicação React para produção
 RUN npm run build
 
+RUN npm install dotenv
+
 # Etapa 2: Configurar o servidor da aplicação
 FROM nginx:alpine
 

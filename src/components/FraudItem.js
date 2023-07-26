@@ -15,9 +15,11 @@ const Item = ({ id: transaction_object }) => {
   };
 
   const handleView = async () => {
+    const apiToken = process.env.REACT_APP_API_TOKEN;
     const response = fetch('http://localhost:8000/analyse-sample', {
       method: 'POST',
       headers: {
+        Authorization: apiToken, // Adiciona o cabeçalho de autorização com o token
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(transaction_object) 
