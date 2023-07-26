@@ -30,7 +30,7 @@ const Monitoramento = () => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(fetchTransacao, 1000);
+    const intervalId = setInterval(fetchTransacao, 1);
     return () => clearInterval(intervalId); // Limpa o intervalo ao desmontar o componente
   }, []);
 
