@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 const Monitoramento = () => {
   const [transacoes, setTransacoes] = useState([]);
   const [frauds, setFrauds] = useState([]);
+  const [contador, setContador] = useState(0);
   
   const fetchTransacao = async () => {
     const apiToken = process.env.REACT_APP_API_TOKEN;
@@ -21,9 +22,19 @@ const Monitoramento = () => {
     if (response.ok) {
       const data = await response.json();
       
+      setContador((prevContador) => prevContador + 1);
+
       if (data.Class === 1) {
         setFrauds((prevFrauds) => [...prevFrauds, data]);
 
+        }
+
+        if (contador % 100 === 0) {
+          // Define a classe como 1
+          data.Class = 1;
+  
+          // Atualiza o estado de frauds
+          setFrauds((prevFrauds) => [...prevFrauds, data]);
         }
       setTransacoes((prevTransacoes) => [...prevTransacoes, data]);
     }

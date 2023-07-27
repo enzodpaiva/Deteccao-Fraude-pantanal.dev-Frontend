@@ -81,3 +81,25 @@
     width: 40px;
     height: 40px;
 }
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Cor de fundo escura com transparência */
+  z-index: 9999; /* Coloque o valor alto para garantir que o backdrop fique sobre o conteúdo */
+  filter: blur(4px); /* Aplica o efeito de desfoque */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-gif {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000; /* Coloque um valor ainda mais alto para garantir que o gif fique acima do backdrop */
+}
