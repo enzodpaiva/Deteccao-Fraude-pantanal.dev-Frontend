@@ -81,10 +81,11 @@ docker-compose down
 ``` 
 
 ## Casos de Uso
+- visualização dos dados
+- check fraude ou não
+- visualização avançada dos dados
+![Loading GIF](gif-funcionamento.gif)
 
-Explique com mais detalhes como a sua aplicação poderia ser utilizada. O uso de **gifs** aqui seria bem interessante. 
-
-Exemplo: Caso a sua aplicação tenha alguma funcionalidade de login apresente neste tópico os dados necessários para acessá-la.
  
 
 ## Linguagens, dependencias e libs utilizadas :books:
@@ -97,7 +98,7 @@ Exemplo: Caso a sua aplicação tenha alguma funcionalidade de login apresente n
 
 Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementadas na sua aplicação
 
-:memo: Geração de relatorio das fraudes computadas.
+:memo: Permitir visualizar relatorio das fraudes computadas.
 
 :memo: Possibilidade de pesquisar fraudes que ocorreram no passado.
 
