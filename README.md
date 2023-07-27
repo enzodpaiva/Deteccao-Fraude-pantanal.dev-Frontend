@@ -96,8 +96,6 @@ docker-compose down
 
 ## Futuras melhorias que almejamos implementar
 
-Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementadas na sua aplicação
-
 :memo: Permitir visualizar relatorio das fraudes computadas.
 
 :memo: Possibilidade de pesquisar fraudes que ocorreram no passado.
