@@ -14,113 +14,95 @@
 </p>
 
 
-### Tópicos 
+### Topics 
 
-:small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
+:small_blue_diamond: [Project Description](#project-description)
 
-:small_blue_diamond: [Funcionalidades](#funcionalidades)
+:small_blue_diamond: [Features](#features)
 
-:small_blue_diamond: [Deploy da Aplicação](#deploy-da-aplicação-dash)
+:small_blue_diamond: [Application Deployment](#application-deployment-dash)
 
-:small_blue_diamond: [Pré-requisitos](#pré-requisitos)
+:small_blue_diamond: [Prerequisites](#prerequisites)
 
-:small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
+:small_blue_diamond: [How to Run the Application](#how-to-run-the-application-arrow_forward)
 
-## Descrição do projeto 
+## Project Description
 
-<p align="justify">
-  O projeto visa detecção de fraudes e tem como objetivo identificar atividades ou padrões não usuais (incomuns). Como por exemplo, falsificação de assinaturas em cheques, clonagem de cartões de crédito, lavagem de dinheiro, declarar falência propositalmente (bankruptcy), etc.
-</p>
+The project aims at fraud detection and aims to identify unusual activities or patterns (uncommon ones). For example, signature forgery on checks, credit card cloning, money laundering, deliberate bankruptcy declarations, etc.
 
-<p align="justify">
-  Esta aplicação front-end é a interface do projeto de detecção de fraudes, fornecendo uma experiência amigável para os usuários visualizarem e interagirem com os resultados. Ela exibe gráficos e permite a visualização de parâmetros em diferentes aspectos, ajudando na identificação de atividades suspeitas. Também oferece notificações em tempo real para reações rápidas e seguras, podendo através delas fazer o julgamento.
-</p>
+This front-end application serves as the user interface for the fraud detection project, providing a user-friendly experience for users to view and interact with the results. It displays graphs and allows parameter visualization from different aspects, assisting in the identification of suspicious activities. It also offers real-time notifications for quick and secure reactions, enabling informed judgments.
 
-## Funcionalidades
+## Features
 
-:heavy_check_mark: Visualizacao gráfica das transações em tempo real
+- :heavy_check_mark: Real-time graphical visualization of transactions.
+- :heavy_check_mark: Avoided loss count.
+- :heavy_check_mark: Allows the operator to annotate new data for future AI training.
+- :heavy_check_mark: User-customized graphical visualization of any transaction attribute using different data visualization methods (dots, histograms, etc).
 
-:heavy_check_mark: Contagem de prejuízo evitado  
-
-:heavy_check_mark: Possibila o operador anotar novos dados para treinos futuros da inteligência artificial  
-
-:heavy_check_mark: Visualização gráfica e personalizada pelo usuário de qualquer um dos atributos das transações com diferentes métodos de visualização de dados (pontos, histograma, etc) 
-
-## Layout ou Deploy da Aplicação :dash:
+## Application Layout or Deployment :dash:
 
 <img src="dev-sec-ops-diagram.png" alt="dev-sec-ops-diagram"  align="center">
 
-
-## Pré-requisitos
+## Prerequisites
 
 :warning: [Docker](https://docs.docker.com/engine/install/ubuntu/)
 
-## Como rodar a aplicação :arrow_forward:
+## How to Run the Application :arrow_forward:
 
-##### No terminal, clone o projeto: 
+##### In the terminal, clone the project:
 
 ```
 git clone git@github.com:enzodpaiva/Deteccao-Fraude-pantanal.dev-Frontend.git
 ```
-##### Criar .env na raiz do projeto a partir do .env.example
+##### How to Create .env File from .env.example
 ```bash 
 cp .env.example .env
 ```
 
-##### Adicionar chave da API no .env em REACT_APP_API_TOKEN
+##### Adding an API Key to .env as REACT_APP_API_TOKEN
 
-##### Executar aplicação através do Docker
+##### To run the application using Docker:
 
 ```bash 
 docker-compose up -d --build
 ```
-##### Derrubar aplicação através do Docker
+##### To stop and remove a Docker container
 
 ```bash 
 docker-compose down
 ``` 
 
-## Casos de Uso
-- visualização dos dados
-- check fraude ou não
-- visualização avançada dos dados
-![Loading GIF](gif-funcionamento.gif)
+## Use Cases
+- Data visualization
+- Fraud detection
+- Advanced data visualization
+![Loading GIF](gif-operation.gif)
 
- 
-
-## Linguagens, dependencias e libs utilizadas :books:
+## Languages, Dependencies, and Libraries Used :books:
 
 - [React](https://pt-br.reactjs.org/docs/create-a-new-react-app.html)
 - [Docker](https://docs.docker.com/)
 - [ES12](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-## Futuras melhorias que almejamos implementar
+## Future Improvements We Aim to Implement
 
-:memo: Permitir visualizar relatorio das fraudes computadas.
+- :memo: Allow viewing reports of computed frauds.
+- :memo: Provide the ability to search for past fraud occurrences.
+- :memo: Implement authentication and access control to ensure user security.
+- :memo: Add support for different types of data sources for fraud detection, such as social media feeds, additional financial transaction data, etc.
+- :memo: Improve the user interface to make navigation more intuitive and user-friendly.
+- :memo: Integrate the application with email or messaging notification services to alert users about suspicious activities.
+- :memo: Implement a user feedback system to collect suggestions and continuously improve the application.
+- :memo: Conduct rigorous performance testing to ensure the application can efficiently handle large volumes of data.
+- :memo: Integrate the application with third-party systems, such as databases, to gather additional information for fraud analysis.
 
-:memo: Possibilidade de pesquisar fraudes que ocorreram no passado.
-
-:memo: Implementar autenticação e controle de acesso para garantir a segurança dos usuários. 
-
-:memo: Adicionar suporte a diferentes tipos de fontes de dados para a detecção de fraudes, como feeds de redes sociais, dados de transações financeiras adicionais, etc.
-
-:memo: Melhorar a interface do usuário para tornar a navegação mais intuitiva e amigável.
-
-:memo: Integrar a aplicação com serviços de notificação por e-mail ou mensagens para alertar os usuários sobre atividades suspeitas.
-
-:memo: Implementar um sistema de feedback dos usuários para coletar sugestões e melhorar continuamente a aplicação.
-
-:memo: Realizar testes rigorosos de desempenho para garantir que a aplicação possa lidar com grandes volumes de dados de forma eficiente.
-
-:memo: Integrar a aplicação com sistemas de terceiros, como bancos de dados, para obter informações adicionais para análise de fraudes.
-
-## Desenvolvedores
+## Makers
 
 | [<img src="https://github.com/enzodpaiva.png?size=460u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=4" width=115><br><sub>Enzo Paiva</sub>](https://github.com/enzodpaiva) |  [<img src="https://github.com/AlexandreSh.png?size=460&u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=4" width=115><br><sub>Alexandre Shimizu</sub>](https://github.com/AlexandreSh) |  [<img src="https://github.com/edu010101.png?size=460&u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=4" width=115><br><sub>Eduardo Lopes</sub>](https://github.com/edu010101) | [<img src="https://github.com/TuskNinja.png?size=460&u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=4" width=115><br><sub>Vitor Yuske</sub>](https://github.com/TuskNinja) |
 | :---: | :---: | :---: | :---: |
 
 
-## Licença 
+## License 
 
 The [MIT License]() (MIT)
 
